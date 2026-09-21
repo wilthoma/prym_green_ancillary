@@ -10,7 +10,7 @@ deformation checks when needed. The six small mathematical inputs are included.
 The original computations are summarized in [RESULTS.md](RESULTS.md).
 
 The CPU tests, a small independent CUDA comparison, and complete reruns of
-genera 20 and 22 pass on Linux with CUDA. [Validation notes](docs/validation.md)
+genera 20, 22, and 24 pass on Linux with CUDA. [Validation notes](docs/validation.md)
 record the tested software versions and fresh computations.
 
 ## Build

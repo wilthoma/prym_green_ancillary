@@ -22,8 +22,10 @@ If the compiler tools are not on PATH, specify `NVCC=/path/to/nvcc` and
 `CUDA_CXX=/path/to/g++` in the `make` command. Select an appropriate scratch
 directory with `--output` for larger runs.
 
-All 44 CPU tests pass: 18 rank-solver tests, 15 geometry/deformation Rust tests,
-and 11 Python tests. All four CUDA executables compile successfully.
+All 47 CPU tests pass: 18 rank-solver tests, 15 geometry/deformation Rust tests,
+and 14 Python tests. They include checks that CPU/GPU jobs overlap, deformation
+starts before background sectors finish, and a concurrent failure terminates
+child processes. All four CUDA executables compile successfully.
 
 ## Independent GPU comparison
 
@@ -49,12 +51,17 @@ unchanged. A deficient rank bound is rejected by the runner.
 |---:|---:|---|
 | 20 | 13 | All ranks, kernel checks, and correction residuals passed. |
 | 22 | 11 | Every base sector has full column rank. |
+| 24 | 15 | All ranks, kernel checks, and correction residuals passed. |
+
+These cases passed with CPU/GPU overlap and priority for the deformation
+stages. The runner retains its single-genus and all-genera interface; resource
+allocation is selected with `--gpus` and the total `--threads` budget.
 
 [validation-results.json](../data/validation-results.json) records every fresh
-rank and residual outcome. The tested production source is `eb08ee2`; later
-commits add the integration test and documentation without changing those
-executables. Each execution also retains its detailed `summary.json` and
-logs locally in the selected output directory.
+rank and residual outcome. The Rust/CUDA executables were built from `eb08ee2`;
+the parallel runner and its integration tests are recorded separately by
+source revision in that file. Each execution also retains its detailed
+`summary.json` and logs locally in the selected output directory.
 
-The larger genera await complete fresh reruns. Their historical results
+Genera 26, 28, and 30 await complete fresh reruns. Their historical results
 remain in [RESULTS.md](../RESULTS.md).

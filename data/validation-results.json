@@ -2,8 +2,9 @@
   "schema_version": 1,
   "description": "Summary of fresh computations with the ancillary implementation. Historical paper campaigns are recorded separately in recorded-results.json.",
   "production_source_revision": "eb08ee27bd9318871f2487bc6f14639ade146551",
-  "cuda_test_revision": "e60cb76cc65e219b9a6ecdfd8fa66158689df604",
-  "cpu_tests_passed": 44,
+  "runner_source_revision": "3f1bb67570af8ddc4e9b9bd94a63a9173ca98547",
+  "cuda_test_revision": "3f1bb67570af8ddc4e9b9bd94a63a9173ca98547",
+  "cpu_tests_passed": 47,
   "runs": [
     {
       "genus": 12,
@@ -288,6 +289,133 @@
           "rank": 75582
         }
       ]
+    },
+    {
+      "genus": 24,
+      "prime": 1009,
+      "status": "passed",
+      "small_input_checks_passed": true,
+      "ranks": [
+        {
+          "operator": "augmented",
+          "sector": 1,
+          "rows": 323344,
+          "columns": 293932,
+          "rank": 293930
+        },
+        {
+          "operator": "augmented",
+          "sector": 11,
+          "rows": 323344,
+          "columns": 293932,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293928
+        },
+        {
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "eliminated",
+          "sector": 11,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930
+        },
+        {
+          "operator": "replacement",
+          "sector": 0,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930
+        }
+      ],
+      "deformation": {
+        "kernel_rank": 2,
+        "kernel_residual_nonzeros": 0,
+        "correction_sectors": [
+          1,
+          11
+        ],
+        "correction_residual_nonzeros": 0,
+        "replacement_drop_columns": [
+          0,
+          1
+        ],
+        "replacement_rank": 293930
+      }
     }
   ]
 }
