@@ -6,10 +6,11 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import threading
 import unittest
 from unittest.mock import patch
 
-from scripts.reproduce import Pipeline, ROOT, read_rank, sha256, validate_kernel_report
+from scripts.reproduce import Pipeline, ROOT, read_rank, result_path, sha256, validate_kernel_report
 
 
 class RunnerTests(unittest.TestCase):
@@ -19,9 +20,10 @@ class RunnerTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.config = json.loads((ROOT / "data/cases.json").read_text())
 
-    def pipeline(self, genus=20):
+    def pipeline(self, genus=20, gpus=None, threads=2):
         case = next(c for c in self.config["cases"] if c["genus"] == genus)
-        return Pipeline(case, self.config["settings"], self.root / f"g{genus}", [0], 2)
+        return Pipeline(case, self.config["settings"], self.root / f"g{genus}",
+                        [0] if gpus is None else gpus, threads)
 
     def test_paired_inputs_are_reconstructed_and_actual_hash_recorded(self):
         for genus in (20, 24, 28):
@@ -76,6 +78,111 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(record["exit_code"], 7)
         self.assertTrue((run.directory / record["log"]).is_file())
         self.assertFalse(run.processes)
+
+    def test_gpu_work_overlaps_bounded_cpu_rank_work(self):
+        run = self.pipeline(threads=4)
+        jobs = [run.job("eliminated", c, run.case["expected_base_ranks"][c]) for c in range(3)]
+        by_name = {job["run_id"]: job for job in jobs}
+        lock = threading.Lock()
+        first_rank = threading.Event()
+        second_rank = threading.Event()
+        counts = dict(sequences=0, ranks=0, cpu=0, peak_cpu=0, gpu=0, overlap=False)
+
+        def command(name, args, threads=None):
+            job = by_name[name.rsplit("-", 1)[0]]
+            wdm = Path(job["wdm_path"])
+            if name.endswith("-sequence"):
+                with lock:
+                    counts["gpu"] += 1
+                    self.assertEqual(counts["gpu"], 1)
+                    counts["sequences"] += 1
+                    first = counts["sequences"] == 1
+                try:
+                    if not first:
+                        self.assertTrue(first_rank.wait(5), "GPU stalled behind CPU rank work")
+                        with lock:
+                            counts["overlap"] |= counts["cpu"] > 0
+                    wdm.touch()
+                    result_path(wdm, ".rowmix.json").write_text("{}")
+                finally:
+                    with lock:
+                        counts["gpu"] -= 1
+            else:
+                with lock:
+                    counts["ranks"] += 1
+                    index = counts["ranks"]
+                    counts["cpu"] += threads
+                    counts["peak_cpu"] = max(counts["peak_cpu"], counts["cpu"])
+                try:
+                    if index == 1:
+                        first_rank.set()
+                        self.assertTrue(second_rank.wait(5), "Independent CPU rank jobs did not overlap")
+                    elif index == 2:
+                        second_rank.set()
+                    result_path(wdm, "_result.txt").write_text(
+                        f"Matrix size: {job['rows']} x {job['columns']}\nRank: {job['expected_rank']}\n")
+                finally:
+                    with lock:
+                        counts["cpu"] -= threads
+
+        with patch.object(run, "command", command):
+            run.execute_jobs(jobs)
+        self.assertTrue(counts["overlap"])
+        self.assertEqual(counts["peak_cpu"], run.threads)
+        self.assertEqual(len(run.summary["ranks"]), 3)
+
+    def test_parallel_failure_terminates_children_and_releases_gpus(self):
+        run = self.pipeline(gpus=[0, 1])
+        jobs = [run.job("eliminated", c, run.case["expected_base_ranks"][c]) for c in range(2)]
+        marker = self.root / "other-child-started"
+        first = ("import pathlib,sys,time\n"
+                 "deadline=time.monotonic()+5\n"
+                 "while not pathlib.Path(sys.argv[1]).exists() and time.monotonic()<deadline:\n"
+                 "    time.sleep(0.01)\n"
+                 "raise SystemExit(7)\n")
+        second = "import pathlib,sys,time; pathlib.Path(sys.argv[1]).touch(); time.sleep(30)"
+        command = run.command
+        popen = subprocess.Popen
+        children = []
+
+        def spawn(*args, **kwargs):
+            process = popen(*args, **kwargs)
+            children.append(process)
+            return process
+
+        def simulate(name, args, threads=None):
+            script = first if name == jobs[0]["run_id"] + "-sequence" else second
+            command(name, [sys.executable, "-c", script, marker], threads)
+
+        with patch.object(run, "command", simulate), patch.object(subprocess, "Popen", spawn):
+            with contextlib.redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(RuntimeError, "exited with"):
+                    run.execute_jobs(jobs)
+        self.assertTrue(marker.exists())
+        self.assertEqual(len(children), 2)
+        self.assertTrue(all(p.poll() is not None for p in children))
+        self.assertTrue(run.cancelled.is_set())
+        self.assertFalse(run.processes)
+
+    def test_deformation_starts_before_background_base_jobs_finish(self):
+        run = self.pipeline()
+        background_started = threading.Event()
+        deformation_finished = threading.Event()
+        jobs = [dict(sector=c) for c in range(2)]
+
+        def job(item):
+            if item["sector"] == 1:
+                background_started.set()
+                self.assertTrue(deformation_finished.wait(5), "Deformation waited for all base sectors")
+
+        def deform(base):
+            self.assertEqual(base, jobs)
+            self.assertTrue(background_started.wait(5))
+            deformation_finished.set()
+
+        with patch.object(run, "execute_job", job), patch.object(run, "deform", deform):
+            run.execute_jobs(jobs, deform=True)
+        self.assertTrue(deformation_finished.is_set())
 
 
 if __name__ == "__main__":

@@ -57,7 +57,8 @@ class ReferencePipeline(Pipeline):
         quadratic = read_json(self.artifacts / "quadratic_manifest.json")
         expected = np.asarray(certificate["Z0"], dtype=np.int64)
         np.testing.assert_array_equal(dense(quadratic["Z0"]["path"]), expected @ change % prime)
-        self.summary["recovered_vectors_match_independent_reference"] = True
+        with self.lock:
+            self.summary["recovered_vectors_match_independent_reference"] = True
 
 
 def main():

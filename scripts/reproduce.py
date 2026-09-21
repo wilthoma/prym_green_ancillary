@@ -1,7 +1,7 @@
 """The complete, fixed paper pipeline. WDM files are internal working data.
 
-Each GPU worker performs a sector's sequence, rank analysis and (when needed)
-kernel recovery. Genus-level barriers enforce the deformation dependencies.
+GPU sequence/kernel jobs and CPU rank jobs overlap with separate resource
+limits. A verified sector-zero kernel unlocks the deformation stages.
 No historical output is reused. A failed stage cannot produce a successful
 summary, and child processes are terminated on failure or interruption.
 """
@@ -9,8 +9,11 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
+import heapq
+from itertools import count
 import json
 import os
 import platform
@@ -72,6 +75,42 @@ def validate_kernel_report(path, job, prime):
     return report
 
 
+class Resources:
+    """Allocate devices or CPU slots, giving deformation work first choice.
+
+    Jobs already running finish normally. Among waiting jobs, priority zero
+    runs before priority one, with arrival order breaking ties.
+    """
+
+    def __init__(self, values):
+        self.available = list(values)
+        self.waiting = []
+        self.tickets = count()
+        self.condition = threading.Condition()
+
+    @contextmanager
+    def reserve(self, priority=0):
+        with self.condition:
+            ticket = (priority, next(self.tickets))
+            heapq.heappush(self.waiting, ticket)
+            try:
+                self.condition.wait_for(lambda: self.available and self.waiting[0] == ticket)
+            except BaseException:
+                self.waiting.remove(ticket)
+                heapq.heapify(self.waiting)
+                self.condition.notify_all()
+                raise
+            heapq.heappop(self.waiting)
+            value = self.available.pop(0)
+            self.condition.notify_all()
+        try:
+            yield value
+        finally:
+            with self.condition:
+                self.available.append(value)
+                self.condition.notify_all()
+
+
 class Pipeline:
     """One fresh genus run, using the fixed numerical recipe in cases.json."""
 
@@ -83,6 +122,11 @@ class Pipeline:
         self.artifacts = self.directory / "artifacts"
         self.artifacts.mkdir()
         self.gpus, self.threads = gpus, threads
+        # A small fixed number of rank workers overlaps CPU and GPU work.
+        self.rank_slots = min(2 * len(gpus), threads)
+        self.worker_threads = max(1, threads // self.rank_slots)
+        self.devices = Resources(gpus)
+        self.cpu_slots = Resources(range(self.rank_slots))
         self.instance = self.directory / "input.json"
         self.geometry = ROOT / "target/release/prym-phi"
         self.rank_binary = ROOT / "target/release/prym-rank"
@@ -188,50 +232,71 @@ class Pipeline:
                     expected_rank=expected_rank, wdm_path=str(out / filename),
                     dense=dense, drop=drop, kernel=kernel)
 
-    def execute_job(self, job, device, threads):
+    def gpu_command(self, name, args, priority):
+        """Hold a GPU only while a CUDA executable is actually running."""
+        with self.devices.reserve(priority) as device:
+            args = [*args, "--device", device]
+            self.command(name, args, self.worker_threads)
+            return list(map(str, args))
+
+    def cpu_command(self, name, args, priority=0):
+        with self.cpu_slots.reserve(priority):
+            self.command(name, args, self.worker_threads)
+
+    def execute_job(self, job):
         s = self.settings
         operator, sector = job["operator"], job["sector"]
+        priority = 0 if job["kernel"] or operator == "replacement" else 1
         program = "cuprym_cyclic" if operator == "eliminated" else "cuprym_deformation"
         args = [ROOT / "cuda" / program, self.instance, "--operator", operator,
-                "--sector", sector, "-v", s["vector_count"], "--device", device,
+                "--sector", sector, "-v", s["vector_count"],
                 "--seed", s["numerical_seed"], "--rowmix-rounds", s["rowmix_rounds"],
                 "--rowmix-seed", s["rowmix_seed"], "--out", Path(job["wdm_path"]).parent]
         if job["dense"]:
             args += ["--dense-file", job["dense"]]
         if job["drop"]:
             args += ["--drop-columns", job["drop"]]
-        job["args"] = list(map(str, args))
-        self.command(job["run_id"] + "-sequence", args, threads)
+        job["args"] = self.gpu_command(job["run_id"] + "-sequence", args, priority)
         wdm = Path(job["wdm_path"])
         if not wdm.is_file() or not result_path(wdm, ".rowmix.json").is_file():
             raise RuntimeError(f"Missing sequence or row-mix metadata for {wdm}")
-        args = [self.rank_binary, wdm, "--threads", threads]
+        args = [self.rank_binary, wdm, "--threads", self.worker_threads]
         if job["kernel"]:
             args += ["--generator"]
-        self.command(job["run_id"] + "-rank", args, threads)
+        self.cpu_command(job["run_id"] + "-rank", args, priority)
         job["rank"] = read_rank(result_path(wdm, "_result.txt"), job["rows"],
                                 job["columns"], job["expected_rank"])
         if job["kernel"]:
             args = [ROOT / "cuda" / (program + "_kernel_vectors"), self.instance,
                     "-f", wdm, "-g", result_path(wdm, "_generators.txt"),
-                    "--operator", operator, "--sector", sector, "--device", device]
+                    "--operator", operator, "--sector", sector]
             if job["dense"]:
                 args += ["--dense-file", job["dense"]]
-            self.command(job["run_id"] + "-kernel", args, threads)
+            self.gpu_command(job["run_id"] + "-kernel", args, priority)
             validate_kernel_report(str(wdm) + "_nullvectors_report.json", job, self.case["prime"])
         with self.lock:
             self.summary["ranks"].append({k: job[k] for k in ("operator", "sector", "rows", "columns", "rank")})
             self.save()
 
-    def execute_jobs(self, jobs):
-        slots = min(len(self.gpus), len(jobs), self.threads)
-        threads = max(1, self.threads // slots)
-        def worker(index):
-            for job in jobs[index::slots]:
-                self.execute_job(job, self.gpus[index], threads)
-        with ThreadPoolExecutor(max_workers=slots) as pool:
-            futures = [pool.submit(worker, i) for i in range(slots)]
+    def guarded_job(self, job):
+        try:
+            self.execute_job(job)
+        except BaseException:
+            # A background sector failure must also stop the deformation lane.
+            self.abort()
+            raise
+
+    def execute_jobs(self, jobs, deform=False):
+        if not jobs:
+            return
+        # Each fixed paper stage has at most fifteen lightweight coordinators;
+        # shared resource pools bound the actual CPU and GPU subprocesses.
+        with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
+            futures = [pool.submit(self.guarded_job, job) for job in jobs]
             try:
+                if deform:
+                    futures[0].result()  # sector-zero kernel is now verified
+                    self.deform(jobs)   # other base sectors continue meanwhile
                 for future in as_completed(futures):
                     future.result()
             except BaseException:
@@ -241,7 +306,7 @@ class Pipeline:
     def deform(self, base):
         zero = base[0]
         wdm = zero["wdm_path"]
-        self.command("extract-kernel", [self.geometry, "deformation-extract-base-kernel",
+        self.cpu_command("extract-kernel", [self.geometry, "deformation-extract-base-kernel",
                      "--instance", self.instance, "--kernel-vectors", wdm + "_nullvectors_2.txt",
                      "--kernel-report", wdm + "_nullvectors_report.json", "--out-dir", self.artifacts])
         report = read_json(self.artifacts / "base_kernel_report.json")
@@ -249,7 +314,7 @@ class Pipeline:
             raise ValueError("Base kernel verification failed")
         kernel = self.artifacts / "K_sector0.json"
         corrections = self.case["correction_sectors"]
-        self.command("derive-rhs", [self.geometry, "deformation-derive-rhs", "--instance", self.instance,
+        self.cpu_command("derive-rhs", [self.geometry, "deformation-derive-rhs", "--instance", self.instance,
                      "--kernel", kernel, "--out-dir", self.artifacts, "--expected-corrections",
                      ",".join(map(str, corrections))])
         rhs = read_json(self.artifacts / "rhs_manifest.json")["rhs"]
@@ -261,7 +326,7 @@ class Pipeline:
         self.execute_jobs(jobs)
         manifest = self.artifacts / "augmented.json"
         write_json(manifest, {"runs": jobs})
-        self.command("normalize-corrections", [self.geometry, "deformation-normalize-augmented",
+        self.cpu_command("normalize-corrections", [self.geometry, "deformation-normalize-augmented",
                      "--instance", self.instance, "--manifest", manifest, "--out-dir", self.artifacts])
         solutions = self.artifacts / "solutions_manifest.json"
         checked = read_json(solutions)
@@ -269,7 +334,7 @@ class Pipeline:
                 or sorted(r["sector"] for r in checked["solutions"]) != sorted(corrections)
                 or any(r.get("residual_nonzeros") != 0 for r in checked["solutions"])):
             raise ValueError("First-order correction verification failed")
-        self.command("derive-obstruction", [self.geometry, "deformation-derive-quadratic",
+        self.cpu_command("derive-obstruction", [self.geometry, "deformation-derive-quadratic",
                      "--instance", self.instance, "--kernel", kernel,
                      "--solutions-manifest", solutions, "--out-dir", self.artifacts])
         quadratic = read_json(self.artifacts / "quadratic_manifest.json")
@@ -279,11 +344,12 @@ class Pipeline:
         replacement = self.job("replacement", 0, self.case["expected_replacement_rank"],
                                dense=quadratic["Z0"]["path"], drop=quadratic["drop_columns"]["path"])
         self.execute_jobs([replacement])
-        self.summary["deformation"] = dict(kernel_rank=2, kernel_residual_nonzeros=0,
-                                           correction_sectors=corrections,
-                                           correction_residual_nonzeros=0,
-                                           replacement_drop_columns=indices,
-                                           replacement_rank=replacement["rank"])
+        with self.lock:
+            self.summary["deformation"] = dict(kernel_rank=2, kernel_residual_nonzeros=0,
+                                               correction_sectors=corrections,
+                                               correction_residual_nonzeros=0,
+                                               replacement_drop_columns=indices,
+                                               replacement_rank=replacement["rank"])
 
     def run(self):
         started = time.monotonic()
@@ -297,9 +363,7 @@ class Pipeline:
             self.prepare()
             base = [self.job("eliminated", c, rank, kernel=bool(self.case["deformation"] and c == 0))
                     for c, rank in enumerate(self.case["expected_base_ranks"])]
-            self.execute_jobs(base)
-            if self.case["deformation"]:
-                self.deform(base)
+            self.execute_jobs(base, deform=bool(self.case["deformation"]))
             self.summary["status"] = "passed"
         except BaseException as exc:
             self.abort()

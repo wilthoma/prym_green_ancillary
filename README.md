@@ -74,10 +74,11 @@ Run all six genera sequentially with:
 ./reproduce --all --gpus 0,1 --threads 64 --output /scratch/my-prym-runs
 ```
 
-The numerical settings are fixed. Each GPU processes one sector at a time;
-the CPU budget is divided across active workers. Different genera run
-sequentially. The fresh-run scheduler is intentionally simple, so its elapsed
-times need not match the original campaign's overlapping CPU/GPU scheduler.
+The numerical settings are fixed. GPU and CPU work overlap, with one CUDA job
+per selected GPU and up to two CPU rank jobs per GPU. The total CPU thread
+budget is divided between those rank workers. Kernel and deformation jobs
+have priority and start once their inputs are ready, while other base sectors
+continue in the background. Different genera run sequentially.
 
 A successful run prints `PASS g=...` and the path to `summary.json`. The
 summary contains all required rank bounds and deformation-check outcomes;

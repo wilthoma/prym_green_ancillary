@@ -170,10 +170,13 @@ The `_nullvectors_2.txt` output contains original source coordinates;
 
 The reader interface is `./reproduce --genus G` or `./reproduce --all`, with
 only `--gpus`, `--threads`, and `--output` as operational controls. Each genus
-gets a fresh directory. GPU workers process independent base sectors; each
-worker completes sequence generation, CPU rank analysis, and any kernel
-recovery in that order. The CPU budget is shared between workers. Deformation
-stages follow only after the required base jobs complete. Failure terminates
+gets a fresh directory. Each sector completes sequence generation, CPU rank
+analysis, and any kernel recovery in that order, while different sectors
+overlap. Separate resource pools permit one CUDA job per GPU and up to two
+CPU rank jobs per GPU, dividing the total thread budget between CPU workers.
+Kernel recovery and deformation work take priority over waiting background
+sectors. Deformation begins as soon as the sector-zero kernel is verified;
+all other base ranks must also pass before the genus is accepted. Failure terminates
 child processes and retains logs and working files; there is no resume,
 download, or archived-sequence replay interface.
 
