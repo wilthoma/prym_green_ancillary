@@ -9,10 +9,9 @@ recovers rank lower bounds on the CPU, and performs the kernel and quadratic
 deformation checks when needed. The six small mathematical inputs are included.
 The original computations are summarized in [RESULTS.md](RESULTS.md).
 
-**Base-version validation:** local CPU tests pass. CUDA compilation and
-end-to-end GPU runs are pending validation on ada-32 after the author's clone.
-The recorded paper results are from the original implementation; they are not
-new GPU runs of this extracted version.
+The CPU tests, a small independent CUDA comparison, and complete reruns of
+genera 20 and 22 pass on Linux with CUDA. [Validation notes](docs/validation.md)
+record the tested software versions and fresh computations.
 
 ## Build
 
@@ -22,13 +21,14 @@ Required:
   C++ compiler. The paper used RTX PRO 6000 Blackwell GPUs.
 - Rust 1.93.0 and Cargo, normally installed through `rustup`; the toolchain is
   pinned in `rust-toolchain.toml`.
-- Python 3.12 or later, NumPy, and SciPy for the independent CPU tests.
+- Python 3.12 or 3.13, with the pinned NumPy and SciPy dependencies below.
+  NumPy reconstructs the deformation inputs; SciPy is used by developer tests.
 - The zstd development library/headers and GNU Make.
 
 From the repository directory:
 
 ```sh
-python3 -m venv .venv
+python3.13 -m venv .venv
 . .venv/bin/activate
 python -m pip install -r requirements.txt
 make
@@ -100,11 +100,10 @@ each, 64 CPU cores, and 1 TB host RAM. Approximate elapsed times were:
 | 28 | 15.9 hours |
 | 30 | 10.6 days |
 
-Start with genus 20 or 22. Minimum GPU/host memory and peak scratch use for
-this extracted version have not yet been measured. Large runs generate WDM
-files and vectors locally; the original genus-30 campaign alone retained
-about 6.8 GB of compressed WDM data. These files are neither committed nor
-downloaded. Preserve enough disk space for intermediate states and logs.
+Start with genus 20 or 22. Minimum resource requirements for the larger cases
+have not been established. Large runs generate WDM files and vectors locally;
+the original genus-30 campaign alone retained about 6.8 GB of compressed WDM
+data. Preserve enough disk space for intermediate states and logs.
 
 ## Code and checks
 
@@ -122,8 +121,14 @@ to the functions, tensor layouts, sign conventions, and verification steps.
 `make test` checks all six small inputs and includes an independent explicit
 genus-12 deformation calculation. CPU tests do not substitute for GPU testing.
 
-The first ada-32 validation should be: build, run `make test`, then complete
-genus 20 and genus 22 with one available GPU. These cover both computational
-paths. Genus 24 is the next check; the multi-day cases follow separately.
+After building, the small CUDA integration test can be run with:
+
+```sh
+python tests/check_cuda.py --device 0 --output runs/cuda-tests
+```
+
+It checks all stages on a tiny genus-12 instance against independent exact
+matrices, including recovered kernel, correction, and obstruction vectors.
+It takes a few seconds. Full paper computations use `./reproduce` as above.
 
 Licensing and origins are recorded in [THIRD_PARTY.md](THIRD_PARTY.md).

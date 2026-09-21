@@ -1,6 +1,6 @@
 # Recorded paper computations
 
-This records the completed original computations, not a claim that the new ancillary CUDA build has been validated. The selected manifests and actual rank-result files on ada-31 and ada-32 were inspected on 21 September 2026. [cases.json](data/cases.json) fixes the inputs and expected outcomes; [recorded-results.json](data/recorded-results.json) preserves the per-run ranks and original result paths.
+This records the completed original computations. Fresh runs of the ancillary implementation are documented separately in the [validation notes](docs/validation.md). The selected original manifests and actual rank-result files on ada-31 and ada-32 were inspected on 21 September 2026. [cases.json](data/cases.json) fixes the inputs and expected outcomes; [recorded-results.json](data/recorded-results.json) preserves the per-run ranks and original result paths.
 
 Put m = g/2. All cases use the two node orbits (zeta^j, 2 zeta^j) and (4 zeta^j, 10 zeta^j), 0 ≤ j < m, with all Prym signs −1. At t = 0 the pencil sections have characters 1 and m−1, and the elimination section has character 2.
 

@@ -196,5 +196,8 @@ The developer tests include independent explicit g12 operators and transposes,
 Taylor identities, and a complete Rust deformation-stage comparison against
 that reference's kernel, corrections, and obstruction. Other tests check
 corrupted inputs, incomplete stages, and known BCW ranks/file interfaces.
-CPU tests establish those contracts; CUDA acceptance remains a separate
-step on the author's server after pushing and cloning this repository.
+`tests/check_cuda.py` exercises the complete GPU pipeline over F_661 at g12,
+compares base-sector CPU/CUDA Gram applications, and checks recovered vectors
+against independently assembled matrices up to the kernel basis change.
+[Validation notes](validation.md) record larger complete reruns and the
+tested compiler environment.

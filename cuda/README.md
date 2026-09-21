@@ -3,7 +3,9 @@
 These four translation units are extracted from `prymgreene` revision
 `eb70fbf55dd3e9fa29b4397d2617086cff490e2b`. The root Makefile builds them;
 the root `reproduce` script coordinates them. They require CUDA and zstd.
-The local base version has not yet been compiled or executed on CUDA.
+The extracted code builds on CUDA 13.4 and has passed the small independent
+GPU integration test; see [validation notes](../docs/validation.md) for the
+complete paper cases tested and the compiler environment.
 
 | Executable | Purpose |
 |---|---|
@@ -67,5 +69,6 @@ The CLI11 header and its license notice are retained unchanged.
 The unused ordinary-Phi route, generic CSR matrix readers, random-point
 kernels, and public benchmark/tuning options were removed. Production
 factor kernels, modular overflow checks, row-mixing recipes, and recovery
-formulas were retained. GPU compilation and numerical comparisons are
-pending the author's transfer of this repository to ada-32.
+formulas were retained. The GPU test in `tests/check_cuda.py` compares the
+small full pipeline with exact matrices and checks CPU/CUDA base-sector
+applications before sequence generation.
