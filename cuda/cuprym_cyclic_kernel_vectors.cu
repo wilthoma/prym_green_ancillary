@@ -880,8 +880,6 @@ CyclicPhiHostData<my_int> make_operator_host_data(
 }
 
 template <typename T>
-
-template <typename T>
 T* copy_vector_to_device(const vector<T>& host, const string& label) {
     if (host.empty()) {
         throw std::runtime_error(label + " is empty");

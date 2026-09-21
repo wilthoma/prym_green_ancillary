@@ -57,4 +57,14 @@ std::vector<T> generate_random_vector(size_t size, T prime, URBG& gen, bool only
 
 
 
+// WDM stores canonical residues, including for signed host-side values.
+template <typename T>
+std::vector<T> prettify_vect(const std::vector<T>& vec, T theprime) {
+    std::vector<T> result(vec.size());
+    for (size_t i = 0; i < vec.size(); ++i) {
+        result[i] = (vec[i] % theprime + theprime) % theprime;
+    }
+    return result;
+}
+
 #endif // MATRICES_H

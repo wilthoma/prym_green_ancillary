@@ -10,6 +10,7 @@
 #include <limits>
 #include <utility>
 
+#include "matrices.h"
 #include "zstd_compat.h"
 
 template <typename U>
