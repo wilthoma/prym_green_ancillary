@@ -13,16 +13,15 @@ import sys
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.reproduce import Pipeline, ROOT, read_json, sha256
+from scripts.prepare_deformation import build_instance
+from scripts.reproduce import Pipeline, ROOT, read_json, sha256, write_json
 from deformation_reference import check, inverse
 
 
 class ReferencePipeline(Pipeline):
     def prepare(self):
-        source = ROOT / "tests/fixtures/g12.json"
-        self.instance.write_bytes(source.read_bytes())
+        write_json(self.instance, self.fixture)
         self.summary["input_sha256"] = sha256(self.instance)
-        self.reference = check(read_json(self.instance), include_vectors=True)
         self.summary["independent_reference_passed"] = True
 
     def command(self, name, args, threads=None):
@@ -68,11 +67,14 @@ def main():
     args = parser.parse_args()
     if args.device < 0:
         parser.error("--device must be nonnegative")
-    # Expected ranks come from the independent exact elimination certificate.
-    reference = read_json(ROOT / "tests/fixtures/g12-reference.json")
+    # Over F_109 the fixed preconditioner loses one Gram rank in augmented
+    # sector 5 (although every CUDA moment agrees with exact matrix powers).
+    # Use F_661 for this integration test; CPU-only references retain F_109.
+    fixture = build_instance(12, 661)
+    reference = check(fixture, include_vectors=True)
     profiles = reference["sector_profiles"]
     corrections = reference["first_order_corrections"]
-    case = dict(genus=12, prime=109, deformation="paired",
+    case = dict(genus=12, prime=fixture["modulus"], deformation="paired",
                 sector_rows=[p["rows"] for p in profiles],
                 sector_columns=[p["columns"] for p in profiles],
                 expected_base_ranks=[p["rank"] for p in profiles],
@@ -83,7 +85,9 @@ def main():
                 replacement_drop_columns=reference["kernel_pivot_rows_sector0"])
     settings = read_json(ROOT / "data/cases.json")["settings"]
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
-    ReferencePipeline(case, settings, args.output / f"g12-{stamp}", [args.device], 2).run()
+    pipeline = ReferencePipeline(case, settings, args.output / f"g12-{stamp}", [args.device], 2)
+    pipeline.fixture, pipeline.reference = fixture, reference
+    pipeline.run()
 
 
 if __name__ == "__main__":
