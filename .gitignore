@@ -1,0 +1,14 @@
+/target/
+/runs/
+/.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+/cuda/cuprym_cyclic
+/cuda/cuprym_cyclic_kernel_vectors
+/cuda/cuprym_deformation
+/cuda/cuprym_deformation_kernel_vectors
+*.wdm
+*.wdm.zst
+*_generators.txt
+*_nullvectors*.txt

@@ -1,0 +1,4 @@
+# Runtime: reconstruction of the small paired Taylor inputs.
+numpy==2.3.2
+# Developer tests: independent explicit small matrices.
+scipy==1.18.1

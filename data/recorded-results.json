@@ -1,0 +1,1014 @@
+{
+  "schema_version": 1,
+  "source": "Selected completed campaign manifests, captured 2026-09-21 and checked against live rank-result files that day. Residual fields are saved reports, not newly computed residuals.",
+  "cases": [
+    {
+      "genus": 20,
+      "source_host": "ada-32",
+      "source_campaign": "paper_uniform_20260921_103216/g20-paired",
+      "runs": [
+        {
+          "run_id": "first-order-augmented-g20-paired-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 1,
+          "rows": 21872,
+          "columns": 19450,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/augmented/wdm/first-order-augmented-g20-paired-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001/augmented-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:24+00:00"
+        },
+        {
+          "run_id": "first-order-augmented-g20-paired-deformation-augmented-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 9,
+          "rows": 21872,
+          "columns": 19450,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/augmented/wdm/first-order-augmented-g20-paired-deformation-augmented-sector09-seed1-v4-rowmix-r2-s10001/augmented-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:29+00:00"
+        },
+        {
+          "run_id": "base-kernel-g20-paired-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-kernel",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19446,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-kernel-g20-paired-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:03+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 21872,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:03+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:03+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 21872,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:08+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:09+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 21872,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:14+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:14+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 21872,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:24+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:24+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g20-paired-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 21872,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/wdm/base-other-sector-g20-paired-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:29+00:00"
+        },
+        {
+          "run_id": "quadratic-replacement-g20-paired-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "quadratic-replacement",
+          "operator": "replacement",
+          "sector": 0,
+          "rows": 21886,
+          "columns": 19448,
+          "rank": 19448,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g20-paired/replacement/wdm/quadratic-replacement-g20-paired-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001/replacement-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:33:49+00:00"
+        }
+      ],
+      "deformation_residuals": {
+        "base_kernel_rank": 2,
+        "base_kernel_residual_nonzeros": 0,
+        "first_order_correction_sectors": [
+          1,
+          9
+        ],
+        "first_order_residual_nonzeros": {
+          "1": 0,
+          "9": 0
+        },
+        "first_order_equations_verified": true
+      }
+    },
+    {
+      "genus": 22,
+      "source_host": "ada-32",
+      "source_campaign": "paper_uniform_20260921_103216/g22",
+      "runs": [
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:35:33+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:35:38+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:35:53+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:35:58+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:13+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:18+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:33+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:38+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:53+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:36:58+00:00"
+        },
+        {
+          "run_id": "profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 83980,
+          "columns": 75582,
+          "rank": 75582,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_103216/g22/wdm/profile-g22-c11-p661-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001/eliminated-sector10-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:37:13+00:00"
+        }
+      ],
+      "deformation_residuals": null
+    },
+    {
+      "genus": 24,
+      "source_host": "ada-31",
+      "source_campaign": "deformation_timing_g24_20260907_100829/g24",
+      "runs": [
+        {
+          "run_id": "first-order-augmented-g24-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 1,
+          "rows": 323344,
+          "columns": 293932,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/augmented/wdm/first-order-augmented-g24-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001/augmented-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:12:35+00:00"
+        },
+        {
+          "run_id": "first-order-augmented-g24-deformation-augmented-sector11-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 11,
+          "rows": 323344,
+          "columns": 293932,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/augmented/wdm/first-order-augmented-g24-deformation-augmented-sector11-seed1-v4-rowmix-r2-s10001/augmented-sector11-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:13:45+00:00"
+        },
+        {
+          "run_id": "base-kernel-g24-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-kernel",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293928,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-kernel-g24-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:10:19+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:10:14+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:10:49+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:11:20+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:12:00+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:12:25+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:13:05+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:13:30+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:14:10+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:14:37+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector10-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector10-seed1-v4-rowmix-r2-s10001/eliminated-sector10-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:15:17+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g24-deformation-eliminated-sector11-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 11,
+          "rows": 323344,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/wdm/base-other-sector-g24-deformation-eliminated-sector11-seed1-v4-rowmix-r2-s10001/eliminated-sector11-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:15:47+00:00"
+        },
+        {
+          "run_id": "quadratic-replacement-g24-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "quadratic-replacement",
+          "operator": "replacement",
+          "sector": 0,
+          "rows": 323302,
+          "columns": 293930,
+          "rank": 293930,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_timing_g24_20260907_100829/g24/replacement/wdm/quadratic-replacement-g24-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001/replacement-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T08:16:02+00:00"
+        }
+      ],
+      "deformation_residuals": {
+        "base_kernel_rank": 2,
+        "base_kernel_residual_nonzeros": 0,
+        "first_order_correction_sectors": [
+          1,
+          11
+        ],
+        "first_order_residual_nonzeros": {
+          "1": 0,
+          "11": 0
+        },
+        "first_order_equations_verified": true
+      }
+    },
+    {
+      "genus": 26,
+      "source_host": "ada-31",
+      "source_campaign": "paper_uniform_20260921_104029/g26v4",
+      "runs": [
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:55:41+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T08:55:46+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:01:51+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:02:01+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:07:56+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:08:21+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:14:31+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:15:06+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:20:47+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:21:32+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001/eliminated-sector10-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:26:57+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector11-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 11,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector11-seed1-v4-rowmix-r2-s10001/eliminated-sector11-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:27:42+00:00"
+        },
+        {
+          "run_id": "profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector12-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 12,
+          "rows": 1248072,
+          "columns": 1144066,
+          "rank": 1144066,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/paper_uniform_20260921_104029/g26v4/wdm/profile-g26-c13-p1093-reps-1-2-4-10-eliminated-sector12-seed1-v4-rowmix-r2-s10001/eliminated-sector12-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-21T09:33:12+00:00"
+        }
+      ],
+      "deformation_residuals": null
+    },
+    {
+      "genus": 28,
+      "source_host": "ada-31",
+      "source_campaign": "deformation_g28_20260907_102247/g28",
+      "runs": [
+        {
+          "run_id": "first-order-augmented-g28-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 1,
+          "rows": 4828784,
+          "columns": 4457402,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/augmented/wdm/first-order-augmented-g28-deformation-augmented-sector01-seed1-v4-rowmix-r2-s10001/augmented-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T14:53:54+00:00"
+        },
+        {
+          "run_id": "first-order-augmented-g28-deformation-augmented-sector13-seed1-v4-rowmix-r2-s10001",
+          "stage": "first-order-augmented",
+          "operator": "augmented",
+          "sector": 13,
+          "rows": 4828784,
+          "columns": 4457402,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/augmented/wdm/first-order-augmented-g28-deformation-augmented-sector13-seed1-v4-rowmix-r2-s10001/augmented-sector13-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T15:14:04+00:00"
+        },
+        {
+          "run_id": "base-kernel-g28-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-kernel",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457398,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-kernel-g28-deformation-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T10:13:03+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T10:12:48+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T11:45:29+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T11:45:29+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T13:20:49+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T16:23:24+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T16:26:39+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T19:28:44+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T21:01:34+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T21:08:39+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector10-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector10-seed1-v4-rowmix-r2-s10001/eliminated-sector10-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T22:34:35+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector11-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 11,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector11-seed1-v4-rowmix-r2-s10001/eliminated-sector11-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T22:41:15+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector12-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 12,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector12-seed1-v4-rowmix-r2-s10001/eliminated-sector12-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-08T00:06:50+00:00"
+        },
+        {
+          "run_id": "base-other-sector-g28-deformation-eliminated-sector13-seed1-v4-rowmix-r2-s10001",
+          "stage": "base-other-sector",
+          "operator": "eliminated",
+          "sector": 13,
+          "rows": 4828784,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/wdm/base-other-sector-g28-deformation-eliminated-sector13-seed1-v4-rowmix-r2-s10001/eliminated-sector13-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-08T00:14:05+00:00"
+        },
+        {
+          "run_id": "quadratic-replacement-g28-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "quadratic-replacement",
+          "operator": "replacement",
+          "sector": 0,
+          "rows": 4828916,
+          "columns": 4457400,
+          "rank": 4457400,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/deformation_g28_20260907_102247/g28/replacement/wdm/quadratic-replacement-g28-deformation-replacement-sector00-seed1-v4-rowmix-r2-s10001/replacement-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-07T19:36:04+00:00"
+        }
+      ],
+      "deformation_residuals": {
+        "base_kernel_rank": 2,
+        "base_kernel_residual_nonzeros": 0,
+        "first_order_correction_sectors": [
+          1,
+          13
+        ],
+        "first_order_residual_nonzeros": {
+          "1": 0,
+          "13": 0
+        },
+        "first_order_equations_verified": true
+      }
+    },
+    {
+      "genus": 30,
+      "source_host": "ada-32",
+      "source_campaign": "cyclic_profile_g30_20260907_113440",
+      "runs": [
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 0,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector00-seed1-v4-rowmix-r2-s10001/eliminated-sector00-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-08T18:40:01+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 1,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector01-seed1-v4-rowmix-r2-s10001/eliminated-sector01-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-08T18:33:31+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 2,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector02-seed1-v4-rowmix-r2-s10001/eliminated-sector02-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-10T02:23:06+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 3,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector03-seed1-v4-rowmix-r2-s10001/eliminated-sector03-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-10T02:57:51+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 4,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector04-seed1-v4-rowmix-r2-s10001/eliminated-sector04-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-11T10:11:47+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 5,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector05-seed1-v4-rowmix-r2-s10001/eliminated-sector05-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-11T11:02:52+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 6,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector06-seed1-v4-rowmix-r2-s10001/eliminated-sector06-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-12T17:52:17+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 7,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector07-seed1-v4-rowmix-r2-s10001/eliminated-sector07-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-12T19:00:32+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 8,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector08-seed1-v4-rowmix-r2-s10001/eliminated-sector08-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-14T01:41:12+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 9,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector09-seed1-v4-rowmix-r2-s10001/eliminated-sector09-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-14T03:05:12+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 10,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector10-seed1-v4-rowmix-r2-s10001/eliminated-sector10-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-15T09:37:37+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector11-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 11,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector11-seed1-v4-rowmix-r2-s10001/eliminated-sector11-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-15T11:47:27+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector12-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 12,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector12-seed1-v4-rowmix-r2-s10001/eliminated-sector12-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-16T17:21:17+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector13-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 13,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector13-seed1-v4-rowmix-r2-s10001/eliminated-sector13-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-16T19:40:52+00:00"
+        },
+        {
+          "run_id": "profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector14-seed1-v4-rowmix-r2-s10001",
+          "stage": "profile",
+          "operator": "eliminated",
+          "sector": 14,
+          "rows": 18721080,
+          "columns": 17383860,
+          "rank": 17383860,
+          "rank_result_path": "/scratch/userdata/wilthoma/prymgreene_data/cyclic_profile_g30_20260907_113440/wdm/profile-g30-c15-p1051-reps-1-2-4-10-eliminated-sector14-seed1-v4-rowmix-r2-s10001/eliminated-sector14-v4-rowmix-r2-s10001_result.txt",
+          "rank_completed_at": "2026-09-18T01:04:51+00:00"
+        }
+      ],
+      "deformation_residuals": null
+    }
+  ]
+}
