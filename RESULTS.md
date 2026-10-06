@@ -1,4 +1,4 @@
-# Recorded paper computations
+# Computation Results
 
 This records the completed original computations. Fresh runs of the ancillary implementation are documented separately in the [validation notes](docs/validation.md). The selected original manifests and actual rank-result files on ada-31 and ada-32 were inspected on 21 September 2026. [cases.json](data/cases.json) fixes the inputs and expected outcomes; [recorded-results.json](data/recorded-results.json) preserves the per-run ranks and original result paths.
 
@@ -17,7 +17,7 @@ For g = 20, 24, 28 the paired deformation moves the first orbit by (t zeta^(2j),
 
 All rank computations used block width 4, numerical seed 1, two row-mixing rounds, row-mixing seed 10001, and `paired-sl2-target-v1`. CPU rank jobs used 32 threads. The full arrays of ordinary and eliminated sector dimensions are in `cases.json`; even-m sector row counts depend on sector parity.
 
-## Historical timings
+## Approximate Timings
 
 The campaigns used two NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs. The single-run column is the median base-sector CUDA sequence-loop time, excluding setup, output compression and CPU rank recovery. Elapsed time is from the first recorded base task to the last rank completion, including waiting and overlapping CPU work, but excluding earlier fixture preparation.
 
@@ -31,24 +31,3 @@ The campaigns used two NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs. The si
 | 30 | 15 | 113,939.5950 | 919,735 s (10.6 d) |
 
 The pass count is m for odd m and m+6 for even m. The additional six are two augmented sequences, one replacement sequence and three kernel-recovery passes; there are m+3 sequence/rank computations in the latter case. Timings describe the original hardware and software, not a performance guarantee for this repository.
-
-## Selected evidence and provenance
-
-Paths below are relative to `/scratch/userdata/wilthoma/prymgreene_data/` on the indicated host.
-
-| g | Host | Selected directory |
-|---|---|---|
-| 20 | ada-32 | `paper_uniform_20260921_103216/g20-paired` |
-| 22 | ada-32 | `paper_uniform_20260921_103216/g22` |
-| 24 | ada-31 | `deformation_timing_g24_20260907_100829/g24` |
-| 26 | ada-31 | `paper_uniform_20260921_104029/g26v4` |
-| 28 | ada-31 | `deformation_g28_20260907_102247/g28` |
-| 30 | ada-32 | `cyclic_profile_g30_20260907_113440` |
-
-The full input files are original bytes, with SHA256 hashes in `cases.json`. In particular, g20 is the completed paired-deformation input, not the older alternating fixture; g26 is the block-width-4 cyclic campaign, not the earlier ordinary or block-width-16 runs.
-
-Historical executable hashes and source revisions were not consistently recorded, so no current checkout is presented as the exact code used for every original run. The three deformation inputs do record generator SHA256 `240d66f41fa6b00cdd4995ac36f07cb53e7cee36c6c6fef92cac73954c826321`, which matched the original `prym_deformation_setup.py` inspected during extraction. Changes to that generator for this ancillary repository are separate from this historical hash.
-
-## What the small checker verifies
-
-`python3 scripts/check_geometry.py` checks original-file hashes, the frozen point/deformation recipe, section characters, regular pencils, and the small identities mu_w R = I and mu_w B = 0 (through t² for deformation inputs). It independently reconstructs section constraints and verifies the quadratic multiplication rank 3g−3 and absence of basepoints using exact finite-field arithmetic. It does not read historical rank summaries as proof of the large Koszul ranks; those are reproduced by the CUDA pipeline.
