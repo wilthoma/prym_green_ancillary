@@ -1,8 +1,7 @@
 # Prym–Green ancillary code
 
-Code for *The Prym–Green conjecture in even genera up to 30*, by Sam Payne and
-Thomas Willwacher. It reproduces the computations in even genera 20–30 using
-the paper's fixed parameters.
+Code for [*The Prym–Green conjecture in even genera up to 30*](https://arxiv.org/abs/2610.05646). It reproduces the computations in even
+genera 20–30 using the paper's fixed parameters.
 
 Each run computes its Wiedemann sequences from scratch on an NVIDIA GPU,
 recovers rank lower bounds on the CPU, and performs the kernel and quadratic
@@ -132,4 +131,6 @@ It checks all stages on a tiny genus-12 instance against independent exact
 matrices, including recovered kernel, correction, and obstruction vectors.
 It takes a few seconds. Full paper computations use `./reproduce` as above.
 
-Licensing and origins are recorded in [THIRD_PARTY.md](THIRD_PARTY.md).
+The project code is licensed under [MIT](LICENSE), except for the third-party
+components whose origins and license notices are recorded in
+[THIRD_PARTY.md](THIRD_PARTY.md).

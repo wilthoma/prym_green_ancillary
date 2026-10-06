@@ -7,7 +7,7 @@ name = "prym-phi"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.93"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 description = "Finite-field geometry and deformation stages for the Prym–Green computations"
 
 [dependencies]

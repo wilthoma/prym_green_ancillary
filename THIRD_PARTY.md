@@ -1,28 +1,128 @@
 # Source attribution and licenses
 
-The Prym–Green implementation was extracted and simplified from
-[wilthoma/prymgreene](https://github.com/wilthoma/prymgreene), whose Cargo
-manifest declares `MIT OR Apache-2.0`. The source checkout inspected for this
-extraction was `eb70fbf55dd3e9fa29b4397d2617086cff490e2b`. This identifies the
-extraction source, not the exact executable revision of every historical
-experiment. The original project code and ancillary additions are available
-under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option.
+The project code is distributed under the [MIT license](LICENSE), except for
+third-party components covered by the notices below.
 
-The following components retain their own licenses:
+The Prym–Green implementation was extracted and simplified from
+[wilthoma/prymgreene](https://github.com/wilthoma/prymgreene). Its source
+manifest offered `MIT OR Apache-2.0`; this distribution uses the MIT option.
+The source checkout inspected for the extraction was
+`eb70fbf55dd3e9fa29b4397d2617086cff490e2b`. This identifies the extraction
+source, not the exact executable revision of every historical experiment.
+
+The following components retain their own licenses and copyright notices:
 
 | Component | Origin | License and notice |
 |---|---|---|
-| BCW CPU rank and generator recovery code in `third_party/bcw/` | [wilthoma/bcw_rank](https://github.com/wilthoma/bcw_rank), extraction checkout `df34d858e9704146befc1db856e8141c7fc70dd4` | [MIT; copyright 2026 skip64](LICENSE-BCW), also retained in `third_party/bcw/LICENSE` |
-| CLI11 2.5.0 single header | [CLIUtils/CLI11](https://github.com/CLIUtils/CLI11), `cuda/include/CLI11.hpp` | [BSD-3-Clause; copyright 2017–2025 University of Cincinnati](LICENSE-CLI11); the original notice is also retained in the header |
-| Polynomial multiplication adapted within the BCW code | [bubblemath linear_recurrence.rs](https://github.com/Bubbler-4/math-rs/blob/main/bubblemath/src/linear_recurrence.rs), by Bubbler-4 | [MIT terms and attribution](LICENSE-BUBBLEMATH); author and license are declared in the distributed `bubblemath` 0.1.2 Cargo manifest |
+| BCW CPU rank and generator recovery code in `third_party/bcw/` | [wilthoma/bcw_rank](https://github.com/wilthoma/bcw_rank), extraction checkout `df34d858e9704146befc1db856e8141c7fc70dd4` | [MIT; copyright 2026 skip64](#bcw) |
+| CLI11 2.5.0 single header in `cuda/include/CLI11.hpp` | [CLIUtils/CLI11](https://github.com/CLIUtils/CLI11) | [BSD-3-Clause; copyright 2017–2025 University of Cincinnati](#cli11); the original notice is also retained in the header |
+| Polynomial multiplication adapted within the BCW code | [bubblemath linear_recurrence.rs](https://github.com/Bubbler-4/math-rs/blob/main/bubblemath/src/linear_recurrence.rs), by Bubbler-4 | [MIT terms and attribution](#bubblemath) |
 
-The `bubblemath` crate distribution inspected locally has no separate license
-file; its explicit MIT declaration and source attribution are preserved here.
-No upstream copyright year has been guessed. The BCW source's attribution
-comment is retained alongside the adaptation.
+## External dependencies
 
-Rust dependencies are resolved by the committed Cargo lockfiles and retain
-their respective upstream licenses. NumPy, zstd and the CUDA toolkit are
-external build/runtime dependencies; their binaries are not redistributed by
-this source repository. The independent geometry checker uses only Python's
-standard library.
+Rust dependencies are resolved by the committed `Cargo.lock` and retain their
+respective upstream licenses. NumPy, SciPy, zstd and the CUDA toolkit are
+external build/runtime or test dependencies; their source distributions and
+binaries are not bundled in this source repository. Distributing compiled
+executables or dependency bundles also requires the applicable dependency
+license texts and notices, including those of Apache-2.0 dependencies such as
+`nalgebra`. The project's MIT license does not replace those licenses.
+
+## BCW
+
+The original BCW MIT notice is retained here in full:
+
+```text
+MIT License
+
+Copyright (c) 2026 skip64
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## CLI11
+
+The original CLI11 notice is retained here in full and in the bundled header:
+
+```text
+CLI11: Version 2.5.0
+Originally designed by Henry Schreiner
+https://github.com/CLIUtils/CLI11
+
+This is a standalone header file generated by MakeSingleHeader.py in CLI11/scripts
+from: v2.5.0
+
+CLI11 2.5.0 Copyright (c) 2017-2025 University of Cincinnati, developed by Henry
+Schreiner under NSF AWARD 1414736. All rights reserved.
+
+Redistribution and use in source and binary forms of CLI11, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software without
+   specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+## bubblemath
+
+The `bubblemath` 0.1.2 crate distribution inspected locally has no separate
+license file; its Cargo manifest explicitly declares MIT and identifies
+Bubbler-4 as the author. No upstream copyright year has been guessed. The
+BCW source's attribution comment is retained alongside the adaptation.
+The previously recorded attribution and MIT terms are retained here in full:
+
+```text
+bubblemath (Bubbler-4)
+
+The distributed bubblemath 0.1.2 Cargo manifest identifies Bubbler-4 as the author and declares the MIT license. The upstream source is https://github.com/Bubbler-4/math-rs. The BCW polynomial multiplication code includes an adaptation of its linear_recurrence.rs implementation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

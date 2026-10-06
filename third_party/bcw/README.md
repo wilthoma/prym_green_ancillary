@@ -2,7 +2,8 @@
 
 This directory contains the production subset of Thomas Willwacher's
 `bcw_rank` at revision `df34d858e9704146befc1db856e8141c7fc70dd4`, under the
-included MIT license. Build it through the root Cargo workspace. Its executable
+[MIT terms retained in THIRD_PARTY.md](../../THIRD_PARTY.md#bcw).
+Build it through the root Cargo workspace. Its executable
 is `prym-rank`; the repository's `reproduce` script supplies its inputs.
 
 ```sh
